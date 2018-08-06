@@ -1,6 +1,8 @@
 package com.abhishek.yasma.ui;
 
 import android.arch.lifecycle.ViewModelProvider;
+import android.arch.lifecycle.ViewModelProviders;
+import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -26,8 +28,7 @@ public class MainActivity extends DaggerAppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AndroidInjection.inject(this);
-
-
-
+        viewModel = ViewModelProviders.of(this).get(MainActivityViewModel.class);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
     }
 }
