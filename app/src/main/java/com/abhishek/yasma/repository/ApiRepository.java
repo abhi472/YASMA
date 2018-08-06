@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import io.reactivex.Single;
 
-interface ApiRepository {
+public interface ApiRepository {
 
     Single<ArrayList<Post>> getPosts();
 
