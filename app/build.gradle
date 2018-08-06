@@ -25,6 +25,18 @@ android {
         enabled = true
     }
 
+    buildTypes {
+        debug {
+            buildConfigField "String", "SERVER_URL", "\"https://jsonplaceholder.typicode.com/posts/\""
+
+        }
+        release {
+            buildConfigField "String", "SERVER_URL", "\"https://jsonplaceholder.typicode.com/posts/\""
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
     android {
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_8
