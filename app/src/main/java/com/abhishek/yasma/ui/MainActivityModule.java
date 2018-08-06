@@ -2,7 +2,6 @@ package com.abhishek.yasma.ui;
 
 import dagger.Module;
 import dagger.Provides;
-import dagger.android.ContributesAndroidInjector;
 
 @Module
 public class MainActivityModule {
@@ -11,4 +10,6 @@ public class MainActivityModule {
     MainPagerAdapter mainPagerAdapterProvider(MainActivity activity) {
         return new MainPagerAdapter(activity.getSupportFragmentManager());
     }
+
+
 }
