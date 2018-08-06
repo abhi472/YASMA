@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.abhishek.yasma.R;
+import com.abhishek.yasma.databinding.ActivityMainBinding;
 
 import javax.inject.Inject;
 
@@ -16,13 +17,16 @@ public class MainActivity extends DaggerAppCompatActivity {
     @Inject
     ViewModelProvider.Factory factory;
 
-    MainActivityViewModel viewModel;
+    private MainActivityViewModel viewModel;
+
+    private ActivityMainBinding binding;
 
     @Override
      public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AndroidInjection.inject(this);
+
 
 
     }
