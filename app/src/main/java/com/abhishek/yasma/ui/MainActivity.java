@@ -23,6 +23,9 @@ public class MainActivity extends DaggerAppCompatActivity {
 
     private ActivityMainBinding binding;
 
+    @Inject
+    MainPagerAdapter adapter;
+
     @Override
      public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,5 +33,10 @@ public class MainActivity extends DaggerAppCompatActivity {
         AndroidInjection.inject(this);
         viewModel = ViewModelProviders.of(this).get(MainActivityViewModel.class);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+        binding.viewpager.setAdapter(adapter);
+        binding.tabs.setupWithViewPager(binding.viewpager);
+
+
     }
 }

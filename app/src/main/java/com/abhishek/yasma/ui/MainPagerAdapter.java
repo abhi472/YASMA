@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.abhishek.yasma.model.Post;
+
 import javax.inject.Inject;
 
 public class MainPagerAdapter extends FragmentStatePagerAdapter {
@@ -16,7 +18,11 @@ public class MainPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return null;
+        switch (position) {
+            case 0: return PostListFragment.newInstance();
+            case 1: return AlbumListFragment.newInstance();
+            default: return PostListFragment.newInstance();
+        }
     }
 
     @Override

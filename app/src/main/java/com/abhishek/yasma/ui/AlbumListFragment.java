@@ -18,6 +18,15 @@ import org.jetbrains.annotations.NotNull;
 public class AlbumListFragment extends BaseFragment {
 
 
+    public static AlbumListFragment newInstance() {
+        
+        Bundle args = new Bundle();
+        
+        AlbumListFragment fragment = new AlbumListFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+    
     public AlbumListFragment() {
         // Required empty public constructor
     }

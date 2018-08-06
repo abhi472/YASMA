@@ -18,6 +18,16 @@ import org.jetbrains.annotations.NotNull;
 public class PostListFragment extends BaseFragment {
 
 
+   public static PostListFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        PostListFragment fragment = new PostListFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+
     public PostListFragment() {
         // Required empty public constructor
     }
