@@ -25,7 +25,7 @@ public class BaseViewModel<T> extends ViewModel{
         return command;
     }
 
-    public CompositeDisposable getDisposable() {
+    public CompositeDisposable getCompositeDisposable() {
         return disposable;
     }
 
