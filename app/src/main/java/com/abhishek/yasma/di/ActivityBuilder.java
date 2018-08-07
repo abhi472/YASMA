@@ -1,9 +1,9 @@
 package com.abhishek.yasma.di;
 
-import com.abhishek.yasma.ui.AlbumListFragment;
+import com.abhishek.yasma.ui.albumList.AlbumListFragment;
 import com.abhishek.yasma.ui.MainActivity;
 import com.abhishek.yasma.ui.MainActivityModule;
-import com.abhishek.yasma.ui.PostListFragment;
+import com.abhishek.yasma.ui.postList.PostListFragment;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;

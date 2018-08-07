@@ -5,7 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.abhishek.yasma.model.Post;
+import com.abhishek.yasma.ui.albumList.AlbumListFragment;
+import com.abhishek.yasma.ui.postList.PostListFragment;
 
 import javax.inject.Inject;
 

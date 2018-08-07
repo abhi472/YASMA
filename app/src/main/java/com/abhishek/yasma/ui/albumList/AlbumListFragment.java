@@ -1,4 +1,4 @@
-package com.abhishek.yasma.ui;
+package com.abhishek.yasma.ui.albumList;
 
 
 import android.os.Bundle;
@@ -15,20 +15,19 @@ import org.jetbrains.annotations.NotNull;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PostListFragment extends BaseFragment {
+public class AlbumListFragment extends BaseFragment {
 
 
-   public static PostListFragment newInstance() {
-
+    public static AlbumListFragment newInstance() {
+        
         Bundle args = new Bundle();
-
-        PostListFragment fragment = new PostListFragment();
+        
+        AlbumListFragment fragment = new AlbumListFragment();
         fragment.setArguments(args);
         return fragment;
     }
-
-
-    public PostListFragment() {
+    
+    public AlbumListFragment() {
         // Required empty public constructor
     }
 
@@ -37,7 +36,7 @@ public class PostListFragment extends BaseFragment {
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_post_list, container, false);
+        return inflater.inflate(R.layout.fragment_album_list, container, false);
     }
 
 }
