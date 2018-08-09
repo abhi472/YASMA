@@ -62,6 +62,8 @@ public class PostListFragment extends BaseFragment implements ViewContract {
     @Override
     public void onSuccess() {
 
+
+
     }
 
     @Override

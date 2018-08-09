@@ -1,5 +1,7 @@
 package com.abhishek.yasma.ui.postList;
 
+import android.databinding.ObservableField;
+
 import com.abhishek.yasma.base.BaseViewModel;
 import com.abhishek.yasma.repository.ApiRepository;
 import com.abhishek.yasma.repository.ApiRepositoryHelper;
@@ -12,6 +14,9 @@ import io.reactivex.schedulers.Schedulers;
 public class PostListFragmentViewModel extends BaseViewModel {
 
     private ApiRepository repository;
+
+    ObservableField<Boolean> progressVisibility = new ObservableField<>(true);
+    ObservableField<Boolean> errorVisibility = new ObservableField<>(false);
 
     private ViewContract contract;
 
