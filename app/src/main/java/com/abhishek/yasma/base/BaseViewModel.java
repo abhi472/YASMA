@@ -8,22 +8,17 @@ import com.abhishek.yasma.model.ViewState;
 
 import io.reactivex.disposables.CompositeDisposable;
 
-public class BaseViewModel<T> extends ViewModel{
+public class BaseViewModel extends ViewModel{
 
     public MutableLiveData<ViewState> viewState = new MutableLiveData<>();
 
 
-    public SingleLiveEvent<T> command = new SingleLiveEvent<>();
 
     private CompositeDisposable disposable = new CompositeDisposable();
 
     public BaseViewModel() {
-        viewState.setValue(new ViewState());
     }
 
-    public SingleLiveEvent<T> getCommand() {
-        return command;
-    }
 
     public CompositeDisposable getCompositeDisposable() {
         return disposable;

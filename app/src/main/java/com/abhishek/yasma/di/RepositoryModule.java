@@ -8,7 +8,7 @@ import dagger.Binds;
 import dagger.Module;
 
 @Module
-interface RepositoryModule {
+public interface RepositoryModule {
 
     @Binds
     ApiRepository bindApiRepository(ApiRepositoryHelper helper);

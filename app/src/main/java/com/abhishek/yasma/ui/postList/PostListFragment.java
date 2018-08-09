@@ -1,7 +1,6 @@
 package com.abhishek.yasma.ui.postList;
 
 
-import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.abhishek.yasma.R;
 import com.abhishek.yasma.base.BaseFragment;
+import com.abhishek.yasma.di.ViewModelFactory;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -21,10 +21,10 @@ import javax.inject.Inject;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PostListFragment extends BaseFragment {
+public class PostListFragment extends BaseFragment implements ViewContract {
 
     @Inject
-    ViewModelProvider.Factory factory;
+    ViewModelFactory factory;
 
     private PostListFragmentViewModel viewModel;
 
@@ -53,6 +53,19 @@ public class PostListFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewModel = ViewModelProviders.of(this).get(PostListFragmentViewModel.class);
+        viewModel = ViewModelProviders.of(this, factory).get(PostListFragmentViewModel.class);
+        viewModel.setContract(this);
+        viewModel.startNetworkRequest();
+        }
+
+
+    @Override
+    public void onSuccess() {
+
+    }
+
+    @Override
+    public void onError() {
+
     }
 }
