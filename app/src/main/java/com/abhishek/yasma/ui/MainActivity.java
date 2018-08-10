@@ -33,8 +33,8 @@ public class MainActivity extends DaggerAppCompatActivity {
         AndroidInjection.inject(this);
         viewModel = ViewModelProviders.of(this).get(MainActivityViewModel.class);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-
         binding.viewpager.setAdapter(adapter);
+        binding.tvToolbarTitle.setText(getString(R.string.app_name));
         binding.tabs.setupWithViewPager(binding.viewpager);
 
 

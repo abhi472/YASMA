@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             tools:visibility="visible"
+            app:isVisible="@{viewModel.progressVisibility}"
             app:indicatorColor="@color/primary_start_color"
             app:indicatorName="BallScaleMultipleIndicator" />
 
@@ -26,6 +27,8 @@
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/swipeContainer"
             android:layout_width="match_parent"
+            app:isVisible="@{!viewModel.progressVisibility}"
+            app:isRefreshing="@{viewModel.progressVisibility}"
             android:layout_height="match_parent">
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycler_view"
@@ -39,6 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
+            app:isVisible="@{viewModel.errorVisibility}"
             android:textColor="@color/primary_start_color"
             android:layout_gravity="center"
             tools:visibility="gone"
