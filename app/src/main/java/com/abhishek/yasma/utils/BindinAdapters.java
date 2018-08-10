@@ -7,7 +7,7 @@ import android.view.View;
 public class BindinAdapters {
 
     @BindingAdapter("isVisible")
-    public void isVisible(View view, Boolean status) {
+    public static void isVisible(View view, Boolean status) {
 
       if(status)
           view.setVisibility(View.VISIBLE);
@@ -17,7 +17,7 @@ public class BindinAdapters {
     }
 
     @BindingAdapter("isRefreshing")
-    public void isRefreshing(SwipeRefreshLayout view, Boolean status) {
+    public static void isRefreshing(SwipeRefreshLayout view, Boolean status) {
 
         view.setRefreshing(status);
 

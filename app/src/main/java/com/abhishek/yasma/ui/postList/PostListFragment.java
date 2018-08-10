@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,9 @@ public class PostListFragment extends BaseFragment implements ViewContract {
 
     @Inject
     ViewModelFactory factory;
+
+    @Inject
+    PostListAdapter adapter;
 
     public static final String TAG = "PostListFragmentTag";
     private PostListFragmentViewModel viewModel;
@@ -77,7 +81,9 @@ public class PostListFragment extends BaseFragment implements ViewContract {
     @Override
     public void onSuccess(ArrayList<Post> posts) {
 
-
+        adapter.setItems(posts);
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.recyclerView.setAdapter(adapter);
 
     }
 

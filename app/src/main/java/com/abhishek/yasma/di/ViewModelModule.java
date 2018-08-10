@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 
 import com.abhishek.yasma.ui.MainActivityViewModel;
+import com.abhishek.yasma.ui.postList.PostListAdapterViewModel;
 import com.abhishek.yasma.ui.postList.PostListFragmentViewModel;
 
 import dagger.Binds;
@@ -25,5 +26,10 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(PostListFragmentViewModel.class)
     ViewModel bindPostListFragmentViewModel(PostListFragmentViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PostListAdapterViewModel.class)
+    ViewModel bindPostListAdapterViewModel(PostListAdapterViewModel viewModel);
 
 }

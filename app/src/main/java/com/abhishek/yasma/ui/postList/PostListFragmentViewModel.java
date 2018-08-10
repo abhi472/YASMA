@@ -39,10 +39,13 @@ public class PostListFragmentViewModel extends BaseViewModel {
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(posts -> {
                             contract.onSuccess(posts);
+                            progressVisibility.set(false);
 
 
                         }, throwable -> {
                             contract.onError(R.string.generic_error);
+                            progressVisibility.set(false);
+                            errorVisibility.set(true);
 
                         })
                 );
