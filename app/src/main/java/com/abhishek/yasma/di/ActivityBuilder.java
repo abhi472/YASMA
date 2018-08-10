@@ -3,6 +3,7 @@ package com.abhishek.yasma.di;
 import com.abhishek.yasma.ui.albumList.AlbumListFragment;
 import com.abhishek.yasma.ui.MainActivity;
 import com.abhishek.yasma.ui.MainActivityModule;
+import com.abhishek.yasma.ui.albumList.AlbumListFragmentModule;
 import com.abhishek.yasma.ui.postList.PostListFragment;
 import com.abhishek.yasma.ui.postList.PostListFragmentModule;
 
@@ -18,7 +19,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = PostListFragmentModule.class)
     abstract PostListFragment postListFragmentProvider();
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = AlbumListFragmentModule.class)
     abstract AlbumListFragment albumListFragmentProvider();
 
 }

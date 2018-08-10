@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 
 import com.abhishek.yasma.ui.MainActivityViewModel;
+import com.abhishek.yasma.ui.albumList.AlbumListAdapterViewModel;
 import com.abhishek.yasma.ui.albumList.AlbumListFragmentViewModel;
 import com.abhishek.yasma.ui.postList.PostListAdapterViewModel;
 import com.abhishek.yasma.ui.postList.PostListFragmentViewModel;
@@ -37,5 +38,10 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(AlbumListFragmentViewModel.class)
     ViewModel bindAlbumListFragmentViewModel(AlbumListFragmentViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(AlbumListAdapterViewModel.class)
+    ViewModel bindAlbumListAdapterViewModel(AlbumListAdapterViewModel viewModel);
 
 }
