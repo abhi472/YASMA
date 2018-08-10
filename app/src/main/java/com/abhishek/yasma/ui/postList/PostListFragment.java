@@ -28,7 +28,7 @@ import javax.inject.Inject;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PostListFragment extends BaseFragment implements ViewContract {
+public class PostListFragment extends BaseFragment implements PostListViewContract {
 
     @Inject
     ViewModelFactory factory;

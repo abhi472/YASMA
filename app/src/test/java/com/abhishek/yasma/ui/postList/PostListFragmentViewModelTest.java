@@ -1,7 +1,5 @@
 package com.abhishek.yasma.ui.postList;
 
-import android.arch.lifecycle.Observer;
-
 import com.abhishek.yasma.model.Post;
 import com.abhishek.yasma.repository.ApiRepositoryHelper;
 
@@ -32,7 +30,7 @@ public class PostListFragmentViewModelTest {
     private TestScheduler testScheduler;
 
     @Mock
-    private ViewContract contract;
+    private PostListViewContract contract;
 
 
     private PostListFragmentViewModel viewModel;

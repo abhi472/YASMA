@@ -19,7 +19,7 @@ public class PostListFragmentViewModel extends BaseViewModel {
     public ObservableField<Boolean> progressVisibility = new ObservableField<>(true);
     public ObservableField<Boolean> errorVisibility = new ObservableField<>(false);
 
-    private ViewContract contract;
+    private PostListViewContract contract;
 
     @Inject
     public PostListFragmentViewModel(ApiRepositoryHelper repository) {
@@ -27,7 +27,7 @@ public class PostListFragmentViewModel extends BaseViewModel {
 
     }
 
-    public void setContract(ViewContract contract) {
+    public void setContract(PostListViewContract contract) {
         this.contract = contract;
     }
 
