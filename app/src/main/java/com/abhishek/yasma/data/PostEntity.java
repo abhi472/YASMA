@@ -1,22 +1,27 @@
-package com.abhishek.yasma.model;
+package com.abhishek.yasma.data;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
-public class Post implements PostDataImpl{
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 
-    @SerializedName("userId")
-    @Expose
-    private Integer userId;
-    @SerializedName("id")
-    @Expose
+import com.abhishek.yasma.model.PostDataImpl;
+
+@Entity(tableName = "post")
+public class PostEntity implements PostDataImpl{
+
+
+    @PrimaryKey
+    @ColumnInfo(name = "id")
     private Integer id;
-    @SerializedName("title")
-    @Expose
+
+    private Integer userId;
+
+
     private String title;
-    @SerializedName("body")
-    @Expose
+
     private String body;
+
 
     @Override
     public Integer getUserId() {
@@ -57,5 +62,4 @@ public class Post implements PostDataImpl{
     public void setBody(String body) {
         this.body = body;
     }
-
 }
