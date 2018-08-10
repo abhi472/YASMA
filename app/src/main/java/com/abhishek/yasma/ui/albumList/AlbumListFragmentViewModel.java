@@ -15,7 +15,7 @@ public class AlbumListFragmentViewModel extends BaseViewModel {
     public ObservableField<Boolean> progressVisibility = new ObservableField<>(true);
     public ObservableField<Boolean> errorVisibility = new ObservableField<>(false);
 
-    private PostListViewContract contract;
+    private AlbumListViewContract contract;
 
     @Inject
     public AlbumListFragmentViewModel(ApiRepositoryHelper repository) {
@@ -23,7 +23,7 @@ public class AlbumListFragmentViewModel extends BaseViewModel {
 
     }
 
-    public void setContract(PostListViewContract contract) {
+    public void setContract(AlbumListViewContract contract) {
         this.contract = contract;
     }
 
