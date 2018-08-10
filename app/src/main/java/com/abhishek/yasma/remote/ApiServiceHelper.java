@@ -1,5 +1,6 @@
 package com.abhishek.yasma.remote;
 
+import com.abhishek.yasma.model.Album;
 import com.abhishek.yasma.model.Post;
 
 import java.util.ArrayList;
@@ -24,5 +25,10 @@ public class ApiServiceHelper implements ApiService {
 
         return service.getPosts();
 
+    }
+
+    @Override
+    public Single<ArrayList<Album>> getAlbums() {
+        return service.getAlbums();
     }
 }

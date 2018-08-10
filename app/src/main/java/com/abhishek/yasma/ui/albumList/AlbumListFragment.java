@@ -16,6 +16,7 @@ import com.abhishek.yasma.R;
 import com.abhishek.yasma.base.BaseFragment;
 import com.abhishek.yasma.databinding.FragmentAlbumListBinding;
 import com.abhishek.yasma.di.ViewModelFactory;
+import com.abhishek.yasma.model.Album;
 import com.abhishek.yasma.model.Post;
 import com.abhishek.yasma.ui.postList.PostListFragmentViewModel;
 
@@ -76,7 +77,7 @@ public class AlbumListFragment extends BaseFragment implements AlbumListViewCont
     }
 
     @Override
-    public void onSuccess() {
+    public void onSuccess(ArrayList<Album> albumArrayList) {
 
     }
 

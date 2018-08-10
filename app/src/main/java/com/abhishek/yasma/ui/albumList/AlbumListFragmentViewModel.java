@@ -1,12 +1,16 @@
 package com.abhishek.yasma.ui.albumList;
 
 import android.databinding.ObservableField;
+
+import com.abhishek.yasma.R;
 import com.abhishek.yasma.base.BaseViewModel;
 import com.abhishek.yasma.repository.ApiRepository;
 import com.abhishek.yasma.repository.ApiRepositoryHelper;
-import com.abhishek.yasma.ui.postList.PostListViewContract;
 
 import javax.inject.Inject;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class AlbumListFragmentViewModel extends BaseViewModel {
 
@@ -29,6 +33,23 @@ public class AlbumListFragmentViewModel extends BaseViewModel {
 
     public void startNetworkRequest() {
 
+        getCompositeDisposable()
+                .add(repository
+                        .getAlbums()
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(albums -> {
+                            contract.onSuccess(albums);
+                            progressVisibility.set(false);
+
+
+                        }, throwable -> {
+                            contract.onError(R.string.generic_error);
+                            progressVisibility.set(false);
+                            errorVisibility.set(true);
+
+                        })
+                );
     }
 
 }

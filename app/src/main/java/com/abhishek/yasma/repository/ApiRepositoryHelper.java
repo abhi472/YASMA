@@ -1,5 +1,6 @@
 package com.abhishek.yasma.repository;
 
+import com.abhishek.yasma.model.Album;
 import com.abhishek.yasma.model.Post;
 import com.abhishek.yasma.remote.ApiServiceHelper;
 
@@ -24,5 +25,10 @@ public class ApiRepositoryHelper implements ApiRepository {
     @Override
     public Single<ArrayList<Post>> getPosts() {
         return apiServiceHelper.getPosts();
+    }
+
+    @Override
+    public Single<ArrayList<Album>> getAlbums() {
+        return apiServiceHelper.getAlbums();
     }
 }
