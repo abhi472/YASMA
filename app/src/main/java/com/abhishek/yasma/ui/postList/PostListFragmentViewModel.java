@@ -2,6 +2,7 @@ package com.abhishek.yasma.ui.postList;
 
 import android.databinding.ObservableField;
 
+import com.abhishek.yasma.R;
 import com.abhishek.yasma.base.BaseViewModel;
 import com.abhishek.yasma.repository.ApiRepository;
 import com.abhishek.yasma.repository.ApiRepositoryHelper;
@@ -15,8 +16,8 @@ public class PostListFragmentViewModel extends BaseViewModel {
 
     private ApiRepository repository;
 
-    ObservableField<Boolean> progressVisibility = new ObservableField<>(true);
-    ObservableField<Boolean> errorVisibility = new ObservableField<>(false);
+    public ObservableField<Boolean> progressVisibility = new ObservableField<>(true);
+    public ObservableField<Boolean> errorVisibility = new ObservableField<>(false);
 
     private ViewContract contract;
 
@@ -37,11 +38,11 @@ public class PostListFragmentViewModel extends BaseViewModel {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(posts -> {
-contract.onSuccess();
+                            contract.onSuccess(posts);
 
 
                         }, throwable -> {
-                            contract.onError();
+                            contract.onError(R.string.generic_error);
 
                         })
                 );

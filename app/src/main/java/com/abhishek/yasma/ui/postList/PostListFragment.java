@@ -2,19 +2,25 @@ package com.abhishek.yasma.ui.postList;
 
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.abhishek.yasma.R;
 import com.abhishek.yasma.base.BaseFragment;
+import com.abhishek.yasma.databinding.FragmentPostListBinding;
 import com.abhishek.yasma.di.ViewModelFactory;
+import com.abhishek.yasma.model.Post;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 
@@ -26,7 +32,10 @@ public class PostListFragment extends BaseFragment implements ViewContract {
     @Inject
     ViewModelFactory factory;
 
+    public static final String TAG = "PostListFragmentTag";
     private PostListFragmentViewModel viewModel;
+
+    private FragmentPostListBinding binding;
 
     public static PostListFragment newInstance() {
 
@@ -54,20 +63,26 @@ public class PostListFragment extends BaseFragment implements ViewContract {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         viewModel = ViewModelProviders.of(this, factory).get(PostListFragmentViewModel.class);
+        binding = DataBindingUtil.bind(view);
+        if (binding != null) {
+            binding.setViewModel(viewModel);
+        } else {
+            Log.d(TAG, "binding is null");
+        }
         viewModel.setContract(this);
         viewModel.startNetworkRequest();
-        }
+    }
 
 
     @Override
-    public void onSuccess() {
+    public void onSuccess(ArrayList<Post> posts) {
 
 
 
     }
 
     @Override
-    public void onError() {
+    public void onError(int errorString) {
 
     }
 }
