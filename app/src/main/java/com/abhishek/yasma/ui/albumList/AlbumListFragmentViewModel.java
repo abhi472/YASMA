@@ -4,8 +4,12 @@ import android.databinding.ObservableField;
 
 import com.abhishek.yasma.R;
 import com.abhishek.yasma.base.BaseViewModel;
+import com.abhishek.yasma.model.AlbumDataImpl;
 import com.abhishek.yasma.repository.ApiRepository;
 import com.abhishek.yasma.repository.ApiRepositoryHelper;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 

@@ -4,6 +4,7 @@ import android.databinding.ObservableField;
 
 import com.abhishek.yasma.base.BaseViewModel;
 import com.abhishek.yasma.model.Album;
+import com.abhishek.yasma.model.AlbumDataImpl;
 import com.abhishek.yasma.model.Post;
 
 import javax.inject.Inject;
@@ -17,7 +18,7 @@ public class AlbumListAdapterViewModel extends BaseViewModel {
     public AlbumListAdapterViewModel() {
     }
 
-    public void setFields(Album post) {
+    public void setFields(AlbumDataImpl post) {
         name.set(post.getUserId().toString());
         title.set(post.getTitle());
     }

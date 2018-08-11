@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.abhishek.yasma.R;
 import com.abhishek.yasma.databinding.PostCardBinding;
 import com.abhishek.yasma.model.Post;
+import com.abhishek.yasma.model.PostDataImpl;
 
 import java.util.ArrayList;
 
@@ -18,7 +19,7 @@ public class PostListAdapter extends RecyclerView.Adapter<PostListAdapter.ViewHo
 
 
     private final Context context;
-    private ArrayList<Post> postArrayList = new ArrayList<>();
+    private ArrayList<? extends PostDataImpl> postArrayList = new ArrayList<>();
 
     @Inject
     public PostListAdapter(Context context) {
@@ -48,7 +49,7 @@ public class PostListAdapter extends RecyclerView.Adapter<PostListAdapter.ViewHo
         return postArrayList.size();
     }
 
-    public void setItems(ArrayList<Post> items) {
+    public void setItems(ArrayList<? extends PostDataImpl> items) {
         this.postArrayList = items;
         notifyDataSetChanged();
     }

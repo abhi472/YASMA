@@ -18,7 +18,11 @@ import com.abhishek.yasma.base.BaseFragment;
 import com.abhishek.yasma.databinding.FragmentAlbumListBinding;
 import com.abhishek.yasma.di.ViewModelFactory;
 import com.abhishek.yasma.model.Album;
+import com.abhishek.yasma.model.AlbumDataImpl;
 import com.abhishek.yasma.model.Post;
+import com.abhishek.yasma.model.PostDataImpl;
+import com.abhishek.yasma.repository.ApiRepository;
+import com.abhishek.yasma.repository.ApiRepositoryHelper;
 import com.abhishek.yasma.ui.postList.PostListFragmentViewModel;
 
 import org.jetbrains.annotations.NotNull;
@@ -38,8 +42,10 @@ public class AlbumListFragment extends BaseFragment implements AlbumListViewCont
     @Inject
     AlbumListAdapter adapter;
 
-    private AlbumListFragmentViewModel viewModel;
+    Album post;
 
+
+    private AlbumListFragmentViewModel viewModel;
     private FragmentAlbumListBinding binding;
 
     public static final String TAG = "AlbumListFragmentTAG";
@@ -81,7 +87,7 @@ public class AlbumListFragment extends BaseFragment implements AlbumListViewCont
     }
 
     @Override
-    public void onSuccess(ArrayList<Album> albumArrayList) {
+    public void onSuccess(ArrayList<? extends AlbumDataImpl> albumArrayList) {
         adapter.setItems(albumArrayList);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.recyclerView.setAdapter(adapter);

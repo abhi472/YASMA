@@ -18,6 +18,7 @@ import com.abhishek.yasma.base.BaseFragment;
 import com.abhishek.yasma.databinding.FragmentPostListBinding;
 import com.abhishek.yasma.di.ViewModelFactory;
 import com.abhishek.yasma.model.Post;
+import com.abhishek.yasma.model.PostDataImpl;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -79,7 +80,7 @@ public class PostListFragment extends BaseFragment implements PostListViewContra
 
 
     @Override
-    public void onSuccess(ArrayList<Post> posts) {
+    public void onSuccess(ArrayList<? extends PostDataImpl> posts) {
 
         adapter.setItems(posts);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
