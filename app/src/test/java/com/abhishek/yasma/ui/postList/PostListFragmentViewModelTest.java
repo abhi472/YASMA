@@ -1,6 +1,7 @@
 package com.abhishek.yasma.ui.postList;
 
 import com.abhishek.yasma.model.Post;
+import com.abhishek.yasma.model.PostDataImpl;
 import com.abhishek.yasma.repository.ApiRepositoryHelper;
 
 import org.junit.After;
@@ -34,7 +35,7 @@ public class PostListFragmentViewModelTest {
 
 
     private PostListFragmentViewModel viewModel;
-    private ArrayList<Post> postList;
+    private ArrayList<PostDataImpl> postList;
 
     @BeforeClass
     public static void setupClass() {
@@ -61,7 +62,7 @@ public class PostListFragmentViewModelTest {
         viewModel.startNetworkRequest();
         testScheduler.triggerActions();
 
-        verify(contract).onSuccess();
+        verify(contract).onSuccess(postList);
 
 
 
