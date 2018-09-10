@@ -6,7 +6,10 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import io.reactivex.Single;
 
 @Dao
 public interface PostDao {
@@ -15,6 +18,6 @@ public interface PostDao {
     Long savePost(PostEntity postEntity);
 
     @Query("SELECT * FROM post")
-    LiveData<List<PostEntity>> getPosts();
+    Single<ArrayList<PostEntity>> getPosts();
 
 }

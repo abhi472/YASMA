@@ -7,18 +7,25 @@ import com.abhishek.yasma.base.BaseViewModel;
 import com.abhishek.yasma.model.AlbumDataImpl;
 import com.abhishek.yasma.repository.ApiRepository;
 import com.abhishek.yasma.repository.ApiRepositoryHelper;
+import com.abhishek.yasma.repository.DatabaseRepository;
+import com.abhishek.yasma.repository.DatabaseRepositoryHelper;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import javax.inject.Inject;
 
+import io.reactivex.Observable;
+import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class AlbumListFragmentViewModel extends BaseViewModel {
 
     private ApiRepository repository;
+
+    private DatabaseRepository databaseRepository;
 
     public ObservableField<Boolean> progressVisibility = new ObservableField<>(true);
     public ObservableField<Boolean> errorVisibility = new ObservableField<>(false);
@@ -26,8 +33,10 @@ public class AlbumListFragmentViewModel extends BaseViewModel {
     private AlbumListViewContract contract;
 
     @Inject
-    public AlbumListFragmentViewModel(ApiRepositoryHelper repository) {
+    public AlbumListFragmentViewModel(ApiRepositoryHelper repository,
+                                      DatabaseRepositoryHelper databaseRepository) {
         this.repository = repository;
+        this.databaseRepository = databaseRepository;
 
     }
 
@@ -54,6 +63,24 @@ public class AlbumListFragmentViewModel extends BaseViewModel {
 
                         })
                 );
+    }
+
+    public void fetchData() {
+
+        getCompositeDisposable()
+                .add(Single.concat
+                        (databaseRepository.getAlbums(),
+                                repository.getAlbums())
+                        .take(1).subscribe(albumData -> {
+                            contract.onSuccess(albumData);
+                            progressVisibility.set(false);
+
+                        }, throwable -> {
+                            contract.onError(R.string.generic_error);
+                            progressVisibility.set(false);
+                            errorVisibility.set(true);
+                        }));
+
     }
 
 }

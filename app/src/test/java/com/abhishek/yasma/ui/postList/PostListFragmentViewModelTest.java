@@ -63,11 +63,6 @@ public class PostListFragmentViewModelTest {
         testScheduler.triggerActions();
 
         verify(contract).onSuccess(postList);
-
-
-
-
-
     }
 
     @After
