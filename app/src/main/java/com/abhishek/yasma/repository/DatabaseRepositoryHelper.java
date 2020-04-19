@@ -1,6 +1,5 @@
 package com.abhishek.yasma.repository;
 
-import android.arch.lifecycle.LiveData;
 
 import com.abhishek.yasma.data.AlbumDao;
 import com.abhishek.yasma.data.AlbumEntity;
@@ -14,6 +13,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.reactivex.Completable;
+import io.reactivex.Single;
 
 public class DatabaseRepositoryHelper implements DatabaseRepository {
 
@@ -41,7 +41,7 @@ public class DatabaseRepositoryHelper implements DatabaseRepository {
     }
 
     @Override
-    public ArrayList<PostEntity> getPosts() {
+    public Single<List<PostEntity>> getPosts() {
         return postDao.getPosts();
     }
 
@@ -56,7 +56,7 @@ public class DatabaseRepositoryHelper implements DatabaseRepository {
     }
 
     @Override
-    public ArrayList<AlbumEntity> getAlbums() {
+    public Single<List<AlbumEntity>> getAlbums() {
         return albumDao.getAlbums();
     }
 }

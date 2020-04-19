@@ -1,13 +1,13 @@
 package com.abhishek.yasma.ui.albumList;
 
 
-import android.arch.lifecycle.ViewModelProviders;
-import android.databinding.DataBindingUtil;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,21 +19,15 @@ import com.abhishek.yasma.databinding.FragmentAlbumListBinding;
 import com.abhishek.yasma.di.ViewModelFactory;
 import com.abhishek.yasma.model.Album;
 import com.abhishek.yasma.model.AlbumDataImpl;
-import com.abhishek.yasma.model.Post;
-import com.abhishek.yasma.model.PostDataImpl;
-import com.abhishek.yasma.repository.ApiRepository;
-import com.abhishek.yasma.repository.ApiRepositoryHelper;
-import com.abhishek.yasma.ui.postList.PostListFragmentViewModel;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class AlbumListFragment extends BaseFragment implements AlbumListViewContract {
 
     @Inject
@@ -87,7 +81,7 @@ public class AlbumListFragment extends BaseFragment implements AlbumListViewCont
     }
 
     @Override
-    public void onSuccess(ArrayList<? extends AlbumDataImpl> albumArrayList) {
+    public void onSuccess(List<? extends AlbumDataImpl> albumArrayList) {
         adapter.setItems(albumArrayList);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.recyclerView.setAdapter(adapter);

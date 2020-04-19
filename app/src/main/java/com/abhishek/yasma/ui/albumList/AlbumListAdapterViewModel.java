@@ -1,11 +1,9 @@
 package com.abhishek.yasma.ui.albumList;
 
-import android.databinding.ObservableField;
+import androidx.databinding.ObservableField;
 
 import com.abhishek.yasma.base.BaseViewModel;
-import com.abhishek.yasma.model.Album;
 import com.abhishek.yasma.model.AlbumDataImpl;
-import com.abhishek.yasma.model.Post;
 
 import javax.inject.Inject;
 

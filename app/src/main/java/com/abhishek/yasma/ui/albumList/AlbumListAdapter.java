@@ -1,25 +1,27 @@
 package com.abhishek.yasma.ui.albumList;
 
 import android.content.Context;
-import android.databinding.DataBindingUtil;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.abhishek.yasma.R;
 import com.abhishek.yasma.databinding.AlbumCardBinding;
-import com.abhishek.yasma.model.Album;
 import com.abhishek.yasma.model.AlbumDataImpl;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
 public class AlbumListAdapter extends RecyclerView.Adapter<AlbumListAdapter.ViewHolder> {
     private final Context context;
-    private ArrayList<? extends AlbumDataImpl> albumArrayList = new ArrayList<>();
+    private List<? extends AlbumDataImpl> albumArrayList;
 
     @Inject
     public AlbumListAdapter(Context context) {
@@ -49,7 +51,7 @@ public class AlbumListAdapter extends RecyclerView.Adapter<AlbumListAdapter.View
         return albumArrayList.size();
     }
 
-    public void setItems(ArrayList<? extends AlbumDataImpl> items) {
+    public void setItems(List<? extends AlbumDataImpl> items) {
         this.albumArrayList = items;
         notifyDataSetChanged();
     }

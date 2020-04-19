@@ -1,6 +1,5 @@
 package com.abhishek.yasma.repository;
 
-import android.arch.lifecycle.LiveData;
 
 import com.abhishek.yasma.data.AlbumEntity;
 import com.abhishek.yasma.data.PostEntity;
@@ -15,9 +14,9 @@ public interface DatabaseRepository {
 
     Completable savePost(PostEntity postEntity);
 
-    Single<ArrayList<PostEntity>> getPosts();
+    Single<List<PostEntity>> getPosts();
 
     Completable saveAlbum(AlbumEntity albumEntity);
 
-    Single<ArrayList<AlbumEntity>> getAlbums();
+    Single<List<AlbumEntity>> getAlbums();
 }

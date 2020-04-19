@@ -1,13 +1,13 @@
 package com.abhishek.yasma.ui.postList;
 
 
-import android.arch.lifecycle.ViewModelProviders;
-import android.databinding.DataBindingUtil;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +17,6 @@ import com.abhishek.yasma.R;
 import com.abhishek.yasma.base.BaseFragment;
 import com.abhishek.yasma.databinding.FragmentPostListBinding;
 import com.abhishek.yasma.di.ViewModelFactory;
-import com.abhishek.yasma.model.Post;
 import com.abhishek.yasma.model.PostDataImpl;
 
 import org.jetbrains.annotations.NotNull;

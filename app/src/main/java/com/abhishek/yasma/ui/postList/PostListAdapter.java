@@ -1,14 +1,15 @@
 package com.abhishek.yasma.ui.postList;
 
 import android.content.Context;
-import android.databinding.DataBindingUtil;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.abhishek.yasma.R;
 import com.abhishek.yasma.databinding.PostCardBinding;
-import com.abhishek.yasma.model.Post;
 import com.abhishek.yasma.model.PostDataImpl;
 
 import java.util.ArrayList;

@@ -1,9 +1,8 @@
 package com.abhishek.yasma.ui.postList;
 
-import android.databinding.ObservableField;
+import androidx.databinding.ObservableField;
 
 import com.abhishek.yasma.base.BaseViewModel;
-import com.abhishek.yasma.model.Post;
 import com.abhishek.yasma.model.PostDataImpl;
 
 import javax.inject.Inject;

@@ -1,6 +1,7 @@
 package com.abhishek.yasma.ui;
 
-import android.arch.lifecycle.ViewModel;
+
+import androidx.lifecycle.ViewModel;
 
 import com.abhishek.yasma.base.BaseViewModel;
 

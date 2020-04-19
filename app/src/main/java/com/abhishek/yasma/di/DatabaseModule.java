@@ -1,6 +1,7 @@
 package com.abhishek.yasma.di;
 
-import android.arch.persistence.room.Room;
+
+import androidx.room.Room;
 
 import com.abhishek.yasma.YASMApp;
 import com.abhishek.yasma.data.AlbumDao;

@@ -1,7 +1,8 @@
 package com.abhishek.yasma.di;
 
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
+
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.abhishek.yasma.ui.MainActivityViewModel;
 import com.abhishek.yasma.ui.albumList.AlbumListAdapterViewModel;

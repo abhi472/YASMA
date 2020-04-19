@@ -1,9 +1,11 @@
 package com.abhishek.yasma.data;
 
-import android.arch.persistence.room.Dao;
-import android.arch.persistence.room.Insert;
-import android.arch.persistence.room.OnConflictStrategy;
-import android.arch.persistence.room.Query;
+
+
+import androidx.room.Dao;
+import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
+import androidx.room.Query;
 
 import com.abhishek.yasma.model.Album;
 
@@ -19,6 +21,6 @@ public interface AlbumDao {
     Long saveAlbum(AlbumEntity albumEntity);
 
     @Query("SELECT * FROM album")
-    Single<ArrayList<AlbumEntity>> getAlbums();
+    Single<List<AlbumEntity>> getAlbums();
 
 }

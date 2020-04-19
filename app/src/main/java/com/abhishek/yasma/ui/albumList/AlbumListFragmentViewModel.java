@@ -1,24 +1,18 @@
 package com.abhishek.yasma.ui.albumList;
 
-import android.databinding.ObservableField;
+import androidx.databinding.ObservableField;
 
 import com.abhishek.yasma.R;
 import com.abhishek.yasma.base.BaseViewModel;
-import com.abhishek.yasma.model.AlbumDataImpl;
 import com.abhishek.yasma.repository.ApiRepository;
 import com.abhishek.yasma.repository.ApiRepositoryHelper;
 import com.abhishek.yasma.repository.DatabaseRepository;
 import com.abhishek.yasma.repository.DatabaseRepositoryHelper;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
 import javax.inject.Inject;
 
-import io.reactivex.Observable;
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class AlbumListFragmentViewModel extends BaseViewModel {
