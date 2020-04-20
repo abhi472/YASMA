@@ -8,15 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Completable;
+import io.reactivex.Observable;
 import io.reactivex.Single;
 
 public interface DatabaseRepository {
 
-    Completable savePost(PostEntity postEntity);
+    void savePost(PostEntity postEntity);
 
     Single<List<PostEntity>> getPosts();
 
-    Completable saveAlbum(AlbumEntity albumEntity);
+    void saveAlbum(AlbumEntity albumEntity);
 
     Single<List<AlbumEntity>> getAlbums();
 }

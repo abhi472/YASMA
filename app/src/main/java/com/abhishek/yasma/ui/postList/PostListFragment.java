@@ -15,13 +15,14 @@ import android.view.ViewGroup;
 
 import com.abhishek.yasma.R;
 import com.abhishek.yasma.base.BaseFragment;
+import com.abhishek.yasma.data.PostEntity;
 import com.abhishek.yasma.databinding.FragmentPostListBinding;
 import com.abhishek.yasma.di.ViewModelFactory;
-import com.abhishek.yasma.model.PostDataImpl;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -35,6 +36,8 @@ public class PostListFragment extends BaseFragment implements PostListViewContra
 
     @Inject
     PostListAdapter adapter;
+
+
 
     public static final String TAG = "PostListFragmentTag";
     private PostListFragmentViewModel viewModel;
@@ -74,12 +77,12 @@ public class PostListFragment extends BaseFragment implements PostListViewContra
             Log.d(TAG, "binding is null");
         }
         viewModel.setContract(this);
-        viewModel.startNetworkRequest();
+        viewModel.getPostData();
     }
 
 
     @Override
-    public void onSuccess(ArrayList<? extends PostDataImpl> posts) {
+    public void onSuccess(List<PostEntity> posts) {
 
         adapter.setItems(posts);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

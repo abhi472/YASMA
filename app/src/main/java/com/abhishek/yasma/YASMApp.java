@@ -5,6 +5,7 @@ import android.content.Context;
 import com.abhishek.yasma.di.DaggerAppComponent;
 import com.abhishek.yasma.di.DatabaseModule;
 import com.abhishek.yasma.di.NetworkModule;
+import com.facebook.stetho.Stetho;
 
 import dagger.android.AndroidInjector;
 import dagger.android.DaggerApplication;
@@ -31,5 +32,7 @@ public class YASMApp extends DaggerApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        Stetho.initializeWithDefaults(this);
+
     }
 }

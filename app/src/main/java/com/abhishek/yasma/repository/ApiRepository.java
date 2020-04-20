@@ -1,17 +1,17 @@
 package com.abhishek.yasma.repository;
 
-import com.abhishek.yasma.model.Album;
-import com.abhishek.yasma.model.Post;
+import com.abhishek.yasma.data.AlbumEntity;
+import com.abhishek.yasma.data.PostEntity;
 
-import java.util.ArrayList;
+import java.util.List;
 
-import io.reactivex.Single;
+import io.reactivex.Observable;
 
 public interface ApiRepository {
 
-    Single<ArrayList<Post>> getPosts();
+    Observable<List<PostEntity>> getPosts();
 
-    Single<ArrayList<Album>> getAlbums();
+    Observable<List<AlbumEntity>> getAlbums();
 
 
 }

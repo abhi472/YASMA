@@ -9,6 +9,7 @@ import androidx.room.Query;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Observable;
 import io.reactivex.Single;
 
 @Dao

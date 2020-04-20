@@ -1,15 +1,15 @@
 package com.abhishek.yasma.repository;
 
-import com.abhishek.yasma.model.Album;
-import com.abhishek.yasma.model.Post;
+import com.abhishek.yasma.data.AlbumEntity;
+import com.abhishek.yasma.data.PostEntity;
 import com.abhishek.yasma.remote.ApiServiceHelper;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import io.reactivex.Single;
+import io.reactivex.Observable;
 
 @Singleton
 public class ApiRepositoryHelper implements ApiRepository {
@@ -23,12 +23,12 @@ public class ApiRepositoryHelper implements ApiRepository {
 
 
     @Override
-    public Single<ArrayList<Post>> getPosts() {
+    public Observable<List<PostEntity>> getPosts() {
         return apiServiceHelper.getPosts();
     }
 
     @Override
-    public Single<ArrayList<Album>> getAlbums() {
+    public Observable<List<AlbumEntity>> getAlbums() {
         return apiServiceHelper.getAlbums();
     }
 }

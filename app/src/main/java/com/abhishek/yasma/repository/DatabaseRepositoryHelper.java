@@ -13,6 +13,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.reactivex.Completable;
+import io.reactivex.Observable;
 import io.reactivex.Single;
 
 public class DatabaseRepositoryHelper implements DatabaseRepository {
@@ -31,13 +32,9 @@ public class DatabaseRepositoryHelper implements DatabaseRepository {
 
 
     @Override
-    public Completable savePost(PostEntity postEntity) {
-        return Completable.create(e -> {
-            db.runInTransaction(() -> {
-                postDao.savePost(postEntity);
-            });
-            e.onComplete();
-        });
+    public void savePost(PostEntity postEntity) {
+        postDao.savePost(postEntity);
+
     }
 
     @Override
@@ -46,13 +43,9 @@ public class DatabaseRepositoryHelper implements DatabaseRepository {
     }
 
     @Override
-    public Completable saveAlbum(AlbumEntity albumEntity) {
-        return Completable.create(e -> {
-            db.runInTransaction(() -> {
-                albumDao.saveAlbum(albumEntity);
-            });
-            e.onComplete();
-        });
+    public void saveAlbum(AlbumEntity albumEntity) {
+        albumDao.saveAlbum(albumEntity);
+
     }
 
     @Override

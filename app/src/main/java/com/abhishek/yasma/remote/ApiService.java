@@ -1,19 +1,19 @@
 package com.abhishek.yasma.remote;
 
 
-import com.abhishek.yasma.model.Album;
-import com.abhishek.yasma.model.Post;
+import com.abhishek.yasma.data.AlbumEntity;
+import com.abhishek.yasma.data.PostEntity;
 
-import java.util.ArrayList;
+import java.util.List;
 
-import io.reactivex.Single;
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 
 public interface ApiService {
 
     @GET("posts")
-    Single<ArrayList<Post>> getPosts();
+    Observable<List<PostEntity>> getPosts();
 
     @GET("albums")
-    Single<ArrayList<Album>> getAlbums();
+    Observable<List<AlbumEntity>> getAlbums();
 }

@@ -3,7 +3,7 @@ package com.abhishek.yasma.ui.postList;
 import androidx.databinding.ObservableField;
 
 import com.abhishek.yasma.base.BaseViewModel;
-import com.abhishek.yasma.model.PostDataImpl;
+import com.abhishek.yasma.data.PostEntity;
 
 import javax.inject.Inject;
 
@@ -17,7 +17,7 @@ public class PostListAdapterViewModel extends BaseViewModel {
     public PostListAdapterViewModel() {
     }
 
-    public void setFields(PostDataImpl post) {
+    public void setFields(PostEntity post) {
         name.set(post.getUserId().toString());
         title.set(post.getTitle());
         body.set(post.getBody());

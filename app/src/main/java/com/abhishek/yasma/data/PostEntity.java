@@ -5,10 +5,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import com.abhishek.yasma.model.PostDataImpl;
-
 @Entity(tableName = "post")
-public class PostEntity implements PostDataImpl{
+public class PostEntity{
 
 
     @PrimaryKey
@@ -23,42 +21,34 @@ public class PostEntity implements PostDataImpl{
     private String body;
 
 
-    @Override
     public Integer getUserId() {
         return userId;
     }
 
-    @Override
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
-    @Override
     public Integer getId() {
         return id;
     }
 
-    @Override
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @Override
     public String getTitle() {
         return title;
     }
 
-    @Override
     public void setTitle(String title) {
         this.title = title;
     }
 
-    @Override
     public String getBody() {
         return body;
     }
 
-    @Override
     public void setBody(String body) {
         this.body = body;
     }

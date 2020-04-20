@@ -1,14 +1,14 @@
 package com.abhishek.yasma.remote;
 
-import com.abhishek.yasma.model.Album;
-import com.abhishek.yasma.model.Post;
+import com.abhishek.yasma.data.AlbumEntity;
+import com.abhishek.yasma.data.PostEntity;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import io.reactivex.Single;
+import io.reactivex.Observable;
 
 @Singleton
 public class ApiServiceHelper implements ApiService {
@@ -21,14 +21,14 @@ public class ApiServiceHelper implements ApiService {
     }
 
     @Override
-    public Single<ArrayList<Post>> getPosts() {
+    public Observable<List<PostEntity>> getPosts() {
 
         return service.getPosts();
 
     }
 
     @Override
-    public Single<ArrayList<Album>> getAlbums() {
+    public Observable<List<AlbumEntity>> getAlbums() {
         return service.getAlbums();
     }
 }

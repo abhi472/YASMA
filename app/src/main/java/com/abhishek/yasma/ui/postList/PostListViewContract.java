@@ -1,13 +1,13 @@
 package com.abhishek.yasma.ui.postList;
 
-import com.abhishek.yasma.model.Post;
-import com.abhishek.yasma.model.PostDataImpl;
+import com.abhishek.yasma.data.PostEntity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface PostListViewContract {
 
-    void onSuccess(ArrayList<? extends PostDataImpl> posts);
+    void onSuccess(List<PostEntity> posts);
 
     void onError(int errorString );
 }

@@ -1,7 +1,5 @@
 package com.abhishek.yasma.ui.postList;
 
-import com.abhishek.yasma.model.Post;
-import com.abhishek.yasma.model.PostDataImpl;
 import com.abhishek.yasma.repository.ApiRepositoryHelper;
 
 import org.junit.After;

@@ -15,14 +15,14 @@ import android.view.ViewGroup;
 
 import com.abhishek.yasma.R;
 import com.abhishek.yasma.base.BaseFragment;
+import com.abhishek.yasma.data.AlbumEntity;
 import com.abhishek.yasma.databinding.FragmentAlbumListBinding;
 import com.abhishek.yasma.di.ViewModelFactory;
-import com.abhishek.yasma.model.Album;
-import com.abhishek.yasma.model.AlbumDataImpl;
+import com.google.android.gms.common.util.CollectionUtils;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -36,13 +36,12 @@ public class AlbumListFragment extends BaseFragment implements AlbumListViewCont
     @Inject
     AlbumListAdapter adapter;
 
-    Album post;
-
 
     private AlbumListFragmentViewModel viewModel;
     private FragmentAlbumListBinding binding;
 
     public static final String TAG = "AlbumListFragmentTAG";
+    private List<AlbumEntity> albumArrayList;
 
 
     public static AlbumListFragment newInstance() {
@@ -77,11 +76,12 @@ public class AlbumListFragment extends BaseFragment implements AlbumListViewCont
             Log.d(TAG, "binding is null");
         }
         viewModel.setContract(this);
-        viewModel.startNetworkRequest();
+        viewModel.getAlbumData();
     }
 
     @Override
-    public void onSuccess(List<? extends AlbumDataImpl> albumArrayList) {
+    public void onSuccess(List<AlbumEntity> albumArrayList) {
+        this.albumArrayList = albumArrayList;
         adapter.setItems(albumArrayList);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.recyclerView.setAdapter(adapter);
@@ -89,6 +89,8 @@ public class AlbumListFragment extends BaseFragment implements AlbumListViewCont
 
     @Override
     public void onError(int errorString) {
+
+
 
     }
 }
